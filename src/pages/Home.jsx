@@ -5,6 +5,7 @@ import CategorySection from "../components/CategorySection";
 import { setProducts } from "../redux/productSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import ProductCard from "../components/ProductCard";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -45,12 +46,26 @@ const Home = () => {
 
       <CategorySection />
 
-      <div>
-        <h2>Top Products</h2>
+      <div className="container mx-auto py-12">
+        <h2 className="text-2xl font-bold mb-6 text-center">Top Products</h2>
 
-        <div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 cursor-pointer">
           {products.products.slice(0,5).map(((product) => (
-            <div key={product.id}>{product.name}</div>
+            <div key={product.id}>
+              <ProductCard product={product} />
+            </div>
+          )))}
+        </div>
+      </div>
+
+      <div className="container mx-auto py-12">
+        <h2 className="text-2xl font-bold mb-6 text-center">Shop</h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 cursor-pointer">
+          {products.products.map(((product) => (
+            <div key={product.id}>
+              <ProductCard product={product} />
+            </div>
           )))}
         </div>
       </div>
