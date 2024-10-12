@@ -8,11 +8,11 @@ import { useEffect } from "react";
 import ProductCard from "../components/ProductCard";
 
 const Home = () => {
-  const dispatch = useDispatch();
-  const products = useSelector(state => state.product);
+  const dispatch = useDispatch(); // reduxta aksiyonu tetikler
+  const products = useSelector(state => state.product); // redux storedan bir state almak için kullanılır
   
   useEffect(() => {
-    dispatch(setProducts(mockData));
+    dispatch(setProducts(mockData)); // mockData'yı redux storea sabitler
   }, []);
 
   return (
