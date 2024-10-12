@@ -7,4 +7,5 @@ export const Categories = [
     "Historical",
     "Literature",
     "Comics",
+    "Magazine",
 ];

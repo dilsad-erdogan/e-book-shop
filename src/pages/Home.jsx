@@ -1,6 +1,7 @@
 import { Categories } from "../assets/mockData";
 import HeroImage from "../assets/Images/images.jpeg";
 import InfoSection from "../components/InfoSection";
+import CategorySection from "../components/CategorySection";
 
 const Home = () => {
   return (
@@ -31,6 +32,8 @@ const Home = () => {
       </div>
 
       <InfoSection />
+
+      <CategorySection />
     </div>
   )
 }
