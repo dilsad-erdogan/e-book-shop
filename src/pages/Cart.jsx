@@ -4,7 +4,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import { useState } from "react";
 import Modal from "../components/Modal";
 import ChangeAddress from "../components/ChangeAddress";
-import { removeFromCart } from "../redux/cartSlice";
+import { decreaseQuantity, increaseQuantity, removeFromCart } from "../redux/cartSlice";
 
 const Cart = () => {
   const cart = useSelector(state => state.cart);
@@ -46,9 +46,9 @@ const Cart = () => {
                       <p>${product.price}</p>
 
                       <div className="flex items-center justify-center border">
-                        <button className="text-xl font-bold px-1.5 border-r">-</button>
+                        <button className="text-xl font-bold px-1.5 border-r" onClick={() => dispatch(increaseQuantity(product.id))}>-</button>
                         <p className="text-xl px-2">{product.quantity}</p>
-                        <button className="text-xl px-1 border-l">+</button>
+                        <button className="text-xl px-1 border-l" onClick={() => dispatch(decreaseQuantity(product.id))}>+</button>
                       </div>
 
                       <p>${(product.quantity * product.price).toFixed(2)}</p>
